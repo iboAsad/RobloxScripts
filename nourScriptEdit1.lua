@@ -50,8 +50,8 @@ local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Eggs", function(bool)
         end)
     end
 end)
-
-local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Pineapple", function(bool)
+ 
+local autoEatPineappleSwitch = mainTab:AddSwitch("Auto Eat Pineapple", function(bool)
     _G.AutoPineapple = bool
  
     if bool then
