@@ -65,27 +65,21 @@ tabs.main:AddSwitch("Auto Eat Eggs", function(enabled)
 end)
 
 -- Auto Eat Tropical Shake (Pineapple) Feature
-local autoEatPineappleSwitch = mainTab:AddSwitch("Auto Eat Pineapple", function(bool)
-    _G.AutoPineapple = bool
- 
-    if bool then
+tabs.main:AddSwitch("Auto Eat Pineapple", function(enabled)
+    _G.AutoPineapple = enabled
+    if enabled then
         task.spawn(function()
             while _G.AutoPineapple do
-                local player = game.Players.LocalPlayer
                 local tropicalShake = player.Backpack:FindFirstChild("Tropical Shake")
- 
                 if tropicalShake then
                     tropicalShake.Parent = player.Character
- 
-                    local vim = game:GetService("VirtualInputManager")
-                    for i = 1, 5 do
-                        vim:SendMouseButtonEvent(0, 0, 0, true, game, 1)
+                     for i = 1, 5 do
+                        VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 1)
                         task.wait()
-                        vim:SendMouseButtonEvent(0, 0, 0, false, game, 1)
+                        VirtualInputManager:SendMouseButtonEvent(0, 0, 0, false, game, 1)
                         task.wait(0.1)
                     end
                 end
- 
                 task.wait(1)
             end
         end)
